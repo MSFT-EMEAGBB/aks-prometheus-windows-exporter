@@ -20,7 +20,7 @@ resource vmss_extension 'Microsoft.Compute/virtualMachineScaleSets/extensions@20
         function: 'Setup'
       }
       privacy: {
-        dataCollection: 'false'
+        dataCollection: 'Disable'
       }
     }
     suppressFailures: false
