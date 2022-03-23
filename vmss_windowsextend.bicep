@@ -20,10 +20,10 @@ resource vmss_extension 'Microsoft.Compute/virtualMachineScaleSets/extensions@20
         function: 'Setup'
       }
       privacy: {
-        dataCollection: 'false'
+        dataCollection: 'Disable'
       }
     }
-    suppressFailures: true
+    suppressFailures: false
     type: 'DSC'
     typeHandlerVersion: '2.83'
 
