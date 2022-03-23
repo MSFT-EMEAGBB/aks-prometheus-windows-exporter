@@ -18,6 +18,8 @@ Configuration Setup
                 #       This will have to happen in another place that keeps that list maintained based on the windows nodes available in aks
                 function Install-Windows-Exporter
                 {
+                # Ensureing admin right to install client
+                if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
                     msiexec /i `
                         C:\PROGRA~1\WindowsPowerShell\Modules\aks_setup\dsc_resources\windows_exporter-0.18.1-amd64.msi`
                         LISTEN_PORT=9100 `
